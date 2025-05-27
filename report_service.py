@@ -3,7 +3,7 @@ from stock_info import Stock
 from langchain_core.output_parsers import StrOutputParser
 from langchain_openai import ChatOpenAI
 
-def invesment_report():
+def invesment_report(company:str, symbol:str) -> str:
     prompt = ChatPromptTemplate.from_messages([
         ("system", """
             Want assistance provided by qualified individuals enabled with experience on understanding charts 
@@ -27,9 +27,8 @@ def invesment_report():
 
     llm = ChatOpenAI(model='gpt-4o-mini', temperature=0)
 
-    chain = prompt | llm | StrOutputParser()
-    company = 'nvidia'
-    symbol = 'NVDA'
+    chain = prompt | llm | StrOutputParser()   
+    
     stock = Stock(symbol)
     result = chain.invoke({
         "company": company,

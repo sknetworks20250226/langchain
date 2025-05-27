@@ -23,7 +23,7 @@ class Stock:
         """
 def main():
     if __name__ == "__main__":        
-        stock = Stock('005930.KS')
+        stock = Stock('nvda')
         
         print("\n### Basic Information")
         print(stock.get_basic_info())
